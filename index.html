@@ -5,128 +5,74 @@
 		<title>funlittleproject</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<style>
-				// toggle the cube dimensions here.
-$cubeWidth: 250px;
-$cubeHeight: 250px;
-$cubeDepth: $cubeHeight;
-
+				$size: 150px; // cube length
 body {
-  color: #333;
-  padding: 20px;
   text-align: center;
-  font-family: Arial;
-}
-
-.separator {
-  margin-top: 40px;
-}
-  
-.twitter {
-  color: #FFF;
-  text-decoration: none;
-  border-radius: 4px;
-  background: #00ACED;
+  padding: 50px;
+} 
+.scene {
   display: inline-block;
-  padding: 10px 8px;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/* 3D Cube */
-.space3d {
-    perspective: 1000px;
-    width: $cubeWidth;
-    height: $cubeHeight;
-    text-align: center;
-    display: inline-block;
-}
-
-._3dbox {
-    display: inline-block;
-    transition: all 0.85s cubic-bezier(0.175,0.885,0.320,1.275);
-
-  text-align: center;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-  transform: rotateX(-15deg) rotateY(15deg);
-}
-
-._3dface {
-    overflow: hidden;
-    position: absolute;
+  margin-top: 50px;
+  width: $size;
+  height: $size;
   
-    border: 1px solid #888;
-    background: #FFF;
-    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1),
- 0 0 50px rgba(0, 0, 0, 0.3);
-  color: #333;
-  line-height: $cubeWidth;
+  perspective: 600px;
+}
+.cube {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background: red;
   opacity: 0.8;
 }
-
-
-._3dface--front {
-  width: $cubeWidth;
-  height: $cubeHeight;
-  transform: translate3d(0, 0, $cubeDepth / 2);
-}
-  
-._3dface--top {
-  width: $cubeWidth;
-  height: $cubeDepth;
-  transform: rotateX(90deg) translate3d(0, 0, $cubeHeight / 2);
-}
-
-._3dface--bottom {
-  width: $cubeWidth;
-  height: $cubeDepth;
-    transform: rotateX(-90deg) translate3d(0, 0, $cubeHeight / 2);
-}
-
-._3dface--left {
-    width: $cubeDepth;
-  height: $cubeHeight;
-  left: 50%;
-  margin-left: -$cubeDepth / 2;
-  transform: rotateY(-90deg) translate3d(0, 0, $cubeWidth / 2);
-}
-
-
-._3dface--right {
-  width: $cubeDepth;
-  height: $cubeHeight;
-  left: 50%;
-  margin-left: -$cubeDepth / 2;
-    transform: rotateY(90deg) translate3d(0, 0, $cubeWidth / 2);
-}
-
-
-._3dface--back {
-  width: $cubeWidth;
-  height: $cubeHeight;
-    transform: rotateY(180deg) translate3d(0, 0, $cubeDepth / 2);
-}
-
-#radio-left:checked ~ .space3d ._3dbox {
+// faces
+.cube-face-front {
+  background: yellow;
+  transform: translate3d(0, 0, $size/2);
+}  
+.cube-face-back {
+  background: black;
+  transform: rotateY(180deg) translate3d(0, 0, $size/2);
+} 
+.cube-face-left {
+  background: green;
+  transform: rotateY(-90deg) translate3d(0, 0, $size/2);
+} 
+.cube-face-right {
+  background: magenta;
+  transform: rotateY(90deg) translate3d(0, 0, $size/2);
+} 
+.cube-face-top {
+  background: blue;
+  transform: rotateX(90deg) translate3d(0, 0, $size/2);
+} 
+.cube-face-bottom {
+  background: red;
+  transform: rotateX(-90deg) translate3d(0, 0, $size/2);
+}  
+// controls 
+#radio-back:checked ~ .scene .cube {
+  transform: rotateY(180deg); 
+} 
+#radio-left:checked ~ .scene .cube {
   transform: rotateY(90deg); 
-}
-  
-#radio-right:checked ~ .space3d ._3dbox {
+} 
+#radio-right:checked ~ .scene .cube {
   transform: rotateY(-90deg); 
 }
-  
-#radio-bottom:checked ~ .space3d ._3dbox {
-  transform: rotateX(90deg); 
-}
-
-#radio-top:checked ~ .space3d ._3dbox {
+#radio-top:checked ~ .scene .cube {
   transform: rotateX(-90deg); 
-}
-  
-#radio-back:checked ~ .space3d ._3dbox {
-  transform: rotateY(180deg); 
+}  
+#radio-bottom:checked ~ .scene .cube {
+  transform: rotateX(90deg); 
 }
 
   // Apply backgrounds
