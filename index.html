@@ -5,67 +5,21 @@
 		<title>funlittleproject</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<style>
-				$size: 150px; // cube length
-.cube {
-  margin: 100px;
-  width: $size;
-  height: $size;
-  position: relative;
-  
-  perspective: 600px;
-  transform-style: preserve-3d;
-}
-.cube-face {
-  width: inherit;
-  height: inherit;
-  position: absolute;
-  background: red;
-  opacity: 0.8;
-}
-.cube-face-front {
-  background: yellow;
-  transform: translate3d(0, 0, $size/2);
-} 
-.cube-face-back {
-  background: orange;
-  transform: rotateY(180deg) translate3d(0, 0, $size/2);
-} 
-.cube-face-left {
-  background: green;
-  transform: rotateY(-90deg) translate3d(0, 0, $size/2);
-} 
-.cube-face-right {
-  background: magenta;
-  transform: rotateY(90deg) translate3d(0, 0, $size/2);
-} 
-.cube-face-top {
-  background: blue;
-  transform: rotateX(90deg) translate3d(0, 0, $size/2);
-} 
-.cube-face-bottom {
-  background: red;
-  transform: rotateX(-90deg) translate3d(0, 0, $size/2);
-}
+				
 			</style>
 	</head>
 	
 	<body>
 		
-<div class="separator"></div>
-
-
-<div class="space3d">
-        
-    
-    <div class="_3dbox">
-      <div class="_3dface _3dface--front"></div>
-      <div class="_3dface _3dface--top"></div>
-      <div class="_3dface _3dface--bottom"></div>
-      <div class="_3dface _3dface--left"></div>
-      <div class="_3dface _3dface--right"></div>
-      <div class="_3dface _3dface--back"></div>
-    </div>
-    
+<div class="wrap">
+	<div class="cube">
+		<div class="front">front</div>
+		<div class="back">back</div>
+		<div class="top">top</div>
+		<div class="bottom">bottom</div>
+		<div class="left">left</div>
+		<div class="right">right</div>
+	</div>
 </div>
 	</body>
 
