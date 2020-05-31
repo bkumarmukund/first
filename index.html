@@ -6,25 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<style>
 				$size: 150px; // cube length
-body {
-  text-align: center;
-  padding: 50px;
-} 
-.scene {
-  display: inline-block;
-  margin-top: 50px;
+.cube {
+  margin: 100px;
   width: $size;
   height: $size;
+  position: relative;
   
   perspective: 600px;
-}
-.cube {
-  position: relative;
-  width: inherit;
-  height: inherit;
-  
   transform-style: preserve-3d;
-  transition: transform 0.6s;
 }
 .cube-face {
   width: inherit;
@@ -33,13 +22,12 @@ body {
   background: red;
   opacity: 0.8;
 }
-// faces
 .cube-face-front {
   background: yellow;
   transform: translate3d(0, 0, $size/2);
-}  
+} 
 .cube-face-back {
-  background: black;
+  background: orange;
   transform: rotateY(180deg) translate3d(0, 0, $size/2);
 } 
 .cube-face-left {
@@ -57,76 +45,27 @@ body {
 .cube-face-bottom {
   background: red;
   transform: rotateX(-90deg) translate3d(0, 0, $size/2);
-}  
-// controls 
-#radio-back:checked ~ .scene .cube {
-  transform: rotateY(180deg); 
-} 
-#radio-left:checked ~ .scene .cube {
-  transform: rotateY(90deg); 
-} 
-#radio-right:checked ~ .scene .cube {
-  transform: rotateY(-90deg); 
-}
-#radio-top:checked ~ .scene .cube {
-  transform: rotateX(-90deg); 
-}  
-#radio-bottom:checked ~ .scene .cube {
-  transform: rotateX(90deg); 
-}
-
-  // Apply backgrounds
-  ._3dface--front {
-  background: url(https://2.bp.blogspot.com/-JxKfUObT4L8/UYYaRhRNJmI/AAAAAAAAAUY/243IlIOKj2c/s320/brahama.jpg);
-  background-size: 100%;
-}
-  
-  ._3dface--left {
-  background: url(https://4.bp.blogspot.com/-HGFGdCGFTkw/UXVq6PNmS4I/AAAAAAAAAUE/hBNmVCOVlu4/s400/durga+wm.jpg);
-  background-size: auto 100%;
-}
-  
-   ._3dface--right {
-  background: url(https://2.bp.blogspot.com/-yrnBD8wJ-g0/UNRtPF8pR7I/AAAAAAAAATE/YSpLvqTNyoQ/s320/A+P+J+abdul+kalam_+swm+.jpg);
-  background-size: auto 100%;
-}
-  
-   ._3dface--top {
-  background: url(https://3.bp.blogspot.com/-mySu8dy4ux4/ULiVKS4YBbI/AAAAAAAAAR0/vBMi_4dAPDE/s400/rajiv+dixit+s.jpg);
-  background-size: auto 100%;
-}
-  
-   ._3dface--bottom {
-  background: url(https://2.bp.blogspot.com/-B9QWFtc9bVY/UHFs7y9GqkI/AAAAAAAAARI/YLDkoHYr3g4/s400/Gau+wm.jpg);
-  background-size: auto 100%;
-}
-  
-  ._3dface--back {
-  background: url(https://3.bp.blogspot.com/-ofufG97PpiU/UBzXu-1AisI/AAAAAAAAAP0/iDnhOh-vrb8/s400/shiv+ji.jpg);
-  background-size: auto 100%;
 }
 			</style>
 	</head>
 	
 	<body>
-		<input type="radio" checked id="radio-front" name="select-face"/>    
-<input type="radio" id="radio-left" name="select-face"/>
-<input type="radio" id="radio-right" name="select-face"/>
-<input type="radio" id="radio-top" name="select-face"/>
-<input type="radio" id="radio-bottom" name="select-face"/>
-<input type="radio" id="radio-back" name="select-face"/>
+		
+<div class="separator"></div>
 
-<div></div><!-- separator -->
 
-<div class="scene">
-  <div class="cube">
-      <div class="cube-face  cube-face-front"></div>
-      <div class="cube-face  cube-face-back"></div>
-      <div class="cube-face  cube-face-left"></div>
-      <div class="cube-face  cube-face-right"></div>
-      <div class="cube-face  cube-face-top"></div>
-      <div class="cube-face  cube-face-bottom"></div>
-   </div>
+<div class="space3d">
+        
+    
+    <div class="_3dbox">
+      <div class="_3dface _3dface--front"></div>
+      <div class="_3dface _3dface--top"></div>
+      <div class="_3dface _3dface--bottom"></div>
+      <div class="_3dface _3dface--left"></div>
+      <div class="_3dface _3dface--right"></div>
+      <div class="_3dface _3dface--back"></div>
+    </div>
+    
 </div>
 	</body>
 
